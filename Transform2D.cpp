@@ -1,0 +1,28 @@
+#include <conio.h>
+#include <math.h>
+int main()
+{
+ int gd = DETECT, gm;
+ initgraph(&gd, &gm,(char*) "");
+ int x1 = 100, y1 = 100;
+ int x2 = 200, y2 = 100;
+ setcolor(WHITE);
+ line(x1, y1, x2, y2);
+ int tx = 50, ty = 50;
+ setcolor(RED);
+ line(x1 + tx, y1 + ty, x2 + tx, y2 + ty);
+ float sx = 1.5, sy = 1.5;
+ setcolor(GREEN);
+ line(x1 * sx, y1 * sy, x2 * sx, y2 * sy);
+ float angle = 45 * 3.14159 / 180;
+ int rx1 = x1 * cos(angle) - y1 * sin(angle);
+ int ry1 = x1 * sin(angle) + y1 * cos(angle);
+ int rx2 = x2 * cos(angle) - y2 * sin(angle);
+ int ry2 = x2 * sin(angle) + y2 * cos(angle);
+ setcolor(BLUE);
+ line(rx1, ry1, rx2, ry2);
+ outtextxy(10, 10, (char*)"2D Transformations");
+ getch();
+ closegraph();
+ return 0;
+}
